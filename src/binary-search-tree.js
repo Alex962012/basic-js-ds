@@ -62,10 +62,23 @@ has(data){
 
   }
 }
-  find(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
+  find(data) {
+    return findWithin(this.rootValue,data)
+    function findWithin(node,data) {
+      if(!node){
+        return null
+      }
+      if(node.data===data){
+        return node
+      }
+  
+      return data<node.data?
+      findWithin(node.left, data):
+      findWithin(node.right, data);
+  
+    }
+    }
+    
 
   remove(data) {
     this.rootValue=removeNode(this.rootValue, data)
