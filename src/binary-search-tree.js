@@ -108,16 +108,29 @@ has(data){
   }
 
   min() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
+    if(!this.rootValue){
+      return
+    }
+    let node=this.rootValue
+    while(node.left){
+    node=node.left
+      }
+      return node.data
+    }
+
 
   max() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    if(!this.rootValue){
+      return
+    }
+    let node=this.rootValue  
+    while(node.right){
+      node=node.right
+    }
+    return node.data
   }
 }
-
-module.exports = {
+  
+  module.exports = {
   BinarySearchTree
 };
